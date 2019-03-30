@@ -8,4 +8,5 @@ class Paper extends Model
 {
     //
     protected $table = 'paper';
+    protected $fillable = ['title', 'text', 'button_name'];
 }

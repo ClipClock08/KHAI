@@ -42,11 +42,9 @@ class IndexController extends Controller
         $documents = Documents::latest()->first();
         $documents = $documents->toArray();
 
-        $prices = Prices::latest()->first();
-        $prices = $prices->toArray();
+        $prices = Prices::all();
 
-        $paper = Paper::latest()->first();
-        $paper = $paper->toArray();
+        $paper = Paper::all();
 
         $organized_by = OrganizedBy::latest()->first();
         $organized_by = $organized_by->toArray();
@@ -64,7 +62,7 @@ class IndexController extends Controller
             'organizing' => $organizing,
             'documents' => $documents,
             'prices' => $prices,
-            'paper' => $paper,
+            'papers' => $paper,
             'organized_by' => $organized_by,
             'footer' => $footer
 

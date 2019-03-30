@@ -166,70 +166,55 @@
         </div>
     </div>
 </section>
-@if(isset($) && is_object($ ))
-<section class="conference-fee" style="background-image: url('/assets/img/conference-fee.jpg')">
-    <div class="container">
-        <div class="conference-fee__block">
-            <h2 class="conference-fee__title">Conference fee</h2>
-            <div class="conference-fee__table">
-                <div class="conference-fee__table-head">
-                    <div class="conference-fee__table-tr">
-                        <div class="conference-fee__table-th">Participants</div>
-                        <div class="conference-fee__table-th">IEEE member</div>
-                        <div class="conference-fee__table-th">Non-IEEE member</div>
-                    </div>
-                </div>
-                <div class="conference-fee__table-body">
-                    <div class="conference-fee__table-tr">
-                        <div class="conference-fee__table-td">
-                            <p>Foreign participants</p>
-                        </div>
-                        <div class="conference-fee__table-td">
-                            <p>120 Euro</p>
-                        </div>
-                        <div class="conference-fee__table-td">
-                            <p>150 Euro</p>
+@if(isset($prices) && is_object($prices))
+    <section class="conference-fee" style="background-image: url('/assets/img/conference-fee.jpg')">
+        <div class="container">
+            <div class="conference-fee__block">
+                <h2 class="conference-fee__title">Conference fee</h2>
+                <div class="conference-fee__table">
+                    <div class="conference-fee__table-head">
+                        <div class="conference-fee__table-tr">
+                            <div class="conference-fee__table-th">Participants</div>
+                            <div class="conference-fee__table-th">IEEE member</div>
+                            <div class="conference-fee__table-th">Non-IEEE member</div>
                         </div>
                     </div>
-                    <div class="conference-fee__table-tr">
-                        <div class="conference-fee__table-td">
-                            <p>Ukrainian participants</p>
-                        </div>
-                        <div class="conference-fee__table-td">
-                            <p>500 UAH</p>
-                        </div>
-                        <div class="conference-fee__table-td">
-                            <p>600 UAH</p>
-                        </div>
-                    </div>
-                    <div class="conference-fee__table-tr">
-                        <div class="conference-fee__table-td">
-                            <p>PhD students (single author)</p>
-                        </div>
-                        <div class="conference-fee__table-td">
-                            <p>free</p>
-                        </div>
-                        <div class="conference-fee__table-td">
-                            <p>60 Euro</p>
-                        </div>
+                    <div class="conference-fee__table-body">
+                        @foreach($prices as $k=>$price)
+                            <div class="conference-fee__table-tr">
+                                <div class="conference-fee__table-td">
+                                    <p>{{$price->title}}</p>
+                                </div>
+
+                                <div class="conference-fee__table-td">
+                                    <p>{{$price->first_price}}</p>
+                                </div>
+                                <div class="conference-fee__table-td">
+                                    <p>{{$price->second_price}}</p>
+                                </div>
+                            </div>
+                        @endforeach
                     </div>
                 </div>
             </div>
         </div>
-    </div>
-</section>
-<section class="submission">
-    <div class="container">
-        <h2 class="submission__title">Paper submission</h2>
-        <div class="submission__block">
-            <p>Authors should only submit formatted original 4 full pages work, including illustrations, in standard
-                IEEE conference format&nbsp;<span>(IEEE Conference Format)&nbsp;</span>that has neither appeared
-                elsewhere for publication nor which is under review for another publication. If a paper does not meet
-                specifications, it may be returned without review.</p>
-        </div>
-        <div class="submission__read-more"><a href="#">Read more</a></div>
-    </div>
-</section>
+    </section>
+@endif
+@if(isset($papers) && is_object($papers))
+    @foreach($papers as $k=>$paper)
+        <section class="submission">
+
+            <div class="container">
+                <h2 class="submission__title">{{$paper->title}}</h2>
+                <div class="submission__block">
+                    <p>{!! $paper->text !!}</p>
+                </div>
+                <div class="submission__read-more"><a href="#">{!! $paper->button_name !!}</a></div>
+            </div>
+
+        </section>
+    @endforeach
+@endif
 <section class="organized">
     <div class="container">
         <h2 class="organized__title">Organized by</h2>
@@ -245,7 +230,8 @@
 @if(isset($footer) && is_array($footer))
     <section class="footer">
         <div class="container">
-            <p class="footer__text">{{$footer['copy_write']}}<br>{{$footer['event_head']}}<br>"{{$footer['event_title']}}"</p>
+            <p class="footer__text">{{$footer['copy_write']}}<br>{{$footer['event_head']}}
+                <br>"{{$footer['event_title']}}"</p>
             <p class="footer__date">{{$footer['footer']}}</p>
         </div>
     </section>

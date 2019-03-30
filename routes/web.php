@@ -135,13 +135,13 @@ Route::group(['prefix'=>'admin', 'middleware'=>'auth'], function (){
     //admin/prices
     Route::group(['prefix'=>'prices'], function (){
 
-        //admin/prices
+        //admin/
         Route::get('/', ['uses'=>'PricesController@execute','as'=>'prices']);
 
         //admin/prices/add
         Route::match(['get','post'], '/add',['uses'=>'PricesAddController@execute', 'as'=>'pricesAdd']);
 
-        //admin/edit/{id}
+        //admin/prices/{id}
         Route::match(['get', 'post','delete'], '/edit/{prices}', ['uses'=>'PricesEditController@execute', 'as'=>'pricesEdit']);
 
     });
