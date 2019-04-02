@@ -95,18 +95,20 @@
         </div>
     </div>
 </section>
-<section class="keynote">
-    <div class="container">
-        <h2>Keynote Speaker</h2>
-        <div class="keynote__block">
-            <div class="keynote__item"></div>
-            <div class="keynote__item">
-                <p>Dr hab.inż. Paweł Czarnul Gdansk, Poland</p>
+@if(isset($keynotes) && is_object($keynotes))
+    <section class="keynote">
+        <div class="container">
+            <h2>Keynote Speaker</h2>
+            <div class="keynote__block">
+                @foreach($keynotes as $k=>$keynote)
+                    <div class="keynote__item">
+                        <p>{{$keynote->speaker}} {{$keynote->city}}</p>
+                    </div>
+                @endforeach
             </div>
-            <div class="keynote__item"></div>
         </div>
-    </div>
-</section>
+    </section>
+@endif
 <section class="international">
     <div class="container">
         <h2 class="title">International Programme Committee</h2>
@@ -158,12 +160,13 @@
             <h2 class="title">Download documents</h2>
             <div class="documents__block">
                 @foreach($documents as $document)
-                <div class="documents__item">
-                    <div class="documents__img">{!! Html::image('assets/img/'.$document->icon ,'' ,['width'=>'110px'])!!}</div>
-                    <div class="documents__text">
-                        {!! Html::link('assets/documents/'.$document->file, $document->title) !!}
+                    <div class="documents__item">
+                        <div
+                            class="documents__img">{!! Html::image('assets/img/'.$document->icon ,'' ,['width'=>'110px'])!!}</div>
+                        <div class="documents__text">
+                            {!! Html::link('assets/documents/'.$document->file, $document->title) !!}
+                        </div>
                     </div>
-                </div>
                 @endforeach
             </div>
         </div>

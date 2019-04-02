@@ -30,8 +30,7 @@ class IndexController extends Controller
         $conf_topics = ConfTopics::latest()->first();
         $conf_topics = $conf_topics->toArray();
 
-        $keynotes = Keynote::latest()->first();
-        $keynotes = $keynotes->toArray();
+        $keynotes = Keynote::all();
 
         $programme = Programme::latest()->first();
         $programme = $programme->toArray();

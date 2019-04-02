@@ -15,8 +15,9 @@ class CreateKeynotesTable extends Migration
     {
         Schema::create('keynotes', function (Blueprint $table) {
             $table->bigIncrements('id');
-            //Пока я сюда добавлю только текст. Но мне кажется можно было бы просто картинку
+            $table->string('image', 150);
             $table->string('speaker', 200);
+            $table->string('city', 100);
             $table->timestamps();
         });
     }
