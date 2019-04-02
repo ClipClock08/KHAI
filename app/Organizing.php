@@ -8,4 +8,5 @@ class Organizing extends Model
 {
     //
     protected $table = 'organizing';
+    protected $fillable = ['degree','fio','info'];
 }

@@ -30,13 +30,6 @@ class IntroAddController extends Controller
             }
 
 
-            //For Images
-            if($request->hasFile('images')) {
-                $file = $request->file('images');
-                $input['images'] = $file->getClientOriginalName();
-                $file->move(public_path().'/assets/img',$input['images']);
-            }
-
             $intros = new Intro();
 
             $intros->fill($input);

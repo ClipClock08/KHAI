@@ -11,7 +11,6 @@ class ImportantEditDatesController extends Controller
     //
     public function execute(ImportantDates $important_dates, Request $request){
 
-
         if($request->isMethod('delete')){
             $important_dates->delete();
             return redirect('admin')->with('status', 'Info was deleted');

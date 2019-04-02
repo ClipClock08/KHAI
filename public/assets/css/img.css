@@ -1,0 +1,12 @@
+.address, .my_address__img {
+    position: relative;
+    -webkit-background-size: cover;
+    background-size: cover
+}
+
+.my_address__img {
+    z-index: 1;
+    max-width: 1100px;
+    min-height: 650px;
+    margin: auto;
+}

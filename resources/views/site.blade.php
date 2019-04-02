@@ -7,6 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>All-Ukrainian scientific and technical conference</title>
     <link rel="stylesheet" href="{{asset('assets/css/style_main.css')}}">
+    <link rel="stylesheet" href="{{asset('assets/css/img.css')}}">
 </head>
 <body>
 <header class="header">
@@ -67,6 +68,33 @@
         </div>
     </section>
 @endif
+<section class="conference">
+    <div class="container">
+        <h2 class="title">Conference topics</h2>
+        <div class="conference__block">
+            <div class="conference__left">
+                <ul class="conference__list" style="color: #ffffff; font-size: 1.5em;">
+                    <li class="conference__item">s</li>
+                    <li class="conference__item">sadas</li>
+                    <li class="conference__item"></li>
+                    <li class="conference__item"></li>
+                    <li class="conference__item"></li>
+                    <li class="conference__item"></li>
+                </ul>
+            </div>
+            <div class="conference__right">
+                <ul class="conference__list" style="color: #ffffff; font-size: 1.5em;">
+                    <li class="conference__item"></li>
+                    <li class="conference__item"></li>
+                    <li class="conference__item"></li>
+                    <li class="conference__item"></li>
+                    <li class="conference__item"></li>
+                    <li class="conference__item"></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
 <section class="keynote">
     <div class="container">
         <h2>Keynote Speaker</h2>
@@ -80,97 +108,70 @@
     </div>
 </section>
 <section class="international">
-    <h2>International Programme Committee</h2>
-    <div class="international__block">
-        <div class="international__left">
-            <ul class="international__list">
-                <li class="international__item"></li>
-                <li class="international__item"></li>
-                <li class="international__item"></li>
-                <li class="international__item"></li>
-                <li class="international__item"></li>
-                <li class="international__item"></li>
-            </ul>
-        </div>
-        <div class="international__right">
-            <ul class="international__list">
-                <li class="international__item"></li>
-                <li class="international__item"></li>
-                <li class="international__item"></li>
-                <li class="international__item"></li>
-                <li class="international__item"></li>
-                <li class="international__item"></li>
-            </ul>
-        </div>
-    </div>
-</section>
-<section class="organizing">
     <div class="container">
-        <h2>Organizing Committee</h2>
-        <div class="organizing__list">
-            <li class="organizing__item">
-                <div class="organizing__item-title">Prof. Kritsky D.N.</div>
-                <p class="organizing__item-info">Chairman, Department of Information Technology Design National
-                    Aerospace University, Ukraine</p>
-            </li>
-            <li class="organizing__item"></li>
-            <li class="organizing__item"></li>
-            <li class="organizing__item"></li>
-            <li class="organizing__item"></li>
-        </div>
-    </div>
-</section>
-<section class="documents">
-    <div class="container">
-        <h2>Download documents</h2>
-        <div class="documents__block">
-            <div class="documents__item">
-                <div class="documents__img"></div>
-                <div class="documents__text">Call for paper (.pdf)</div>
+        <h2 class="title">International Programme Committee</h2>
+        <div class="international__block">
+            <div class="international__left">
+                <ul class="international__list">
+                    <li class="international__item"></li>
+                    <li class="international__item"></li>
+                    <li class="international__item"></li>
+                    <li class="international__item"></li>
+                    <li class="international__item"></li>
+                    <li class="international__item"></li>
+                </ul>
             </div>
-            <div class="documents__item">
-                <div class="documents__img"></div>
-                <div class="documents__text">Call for paper (.pdf)</div>
-            </div>
-            <div class="documents__item">
-                <div class="documents__img"></div>
-                <div class="documents__text">Call for paper (.pdf)</div>
-            </div>
-            <div class="documents__item">
-                <div class="documents__img"></div>
-                <div class="documents__text">Call for paper (.pdf)</div>
+            <div class="international__right">
+                <ul class="international__list">
+                    <li class="international__item"></li>
+                    <li class="international__item"></li>
+                    <li class="international__item"></li>
+                    <li class="international__item"></li>
+                    <li class="international__item"></li>
+                    <li class="international__item"></li>
+                </ul>
             </div>
         </div>
     </div>
 </section>
-<section class="documents">
-    <div class="container">
-        <h2>Download documents</h2>
-        <div class="documents__block">
-            <div class="documents__item">
-                <div class="documents__img"></div>
-                <div class="documents__text">Call for paper (.pdf)</div>
-            </div>
-            <div class="documents__item">
-                <div class="documents__img"></div>
-                <div class="documents__text">Call for paper (.pdf)</div>
-            </div>
-            <div class="documents__item">
-                <div class="documents__img"></div>
-                <div class="documents__text">Call for paper (.pdf)</div>
-            </div>
-            <div class="documents__item">
-                <div class="documents__img"></div>
-                <div class="documents__text">Call for paper (.pdf)</div>
+@if(isset($organizing) && is_object($organizing))
+    <section class="organizing">
+        <div class="container">
+            <h2 class="title">Organizing Committee</h2>
+            <div class="organizing__list">
+                @foreach($organizing as $k=>$item)
+                    <li class="organizing__item">
+                        <div class="organizing__item-title">{{$item->degree}} {{$item->fio}}</div>
+                        <p class="organizing__item-info">{{$item->info}}</p>
+                    </li>
+                @endforeach
+                <li class="organizing__item"></li>
+
+
             </div>
         </div>
-    </div>
-</section>
+    </section>
+@endif
+@if(isset($documents) && is_object($documents))
+    <section class="documents">
+        <div class="container">
+            <h2 class="title">Download documents</h2>
+            <div class="documents__block">
+                @foreach($documents as $document)
+                <div class="documents__item">
+                    <div class="documents__img">{!! Html::image('assets/img/'.$document->icon)!!}</div>
+                    <div class="documents__text">{{$document->title}}</div>
+                </div>
+                @endforeach
+            </div>
+        </div>
+    </section>
+@endif
 @if(isset($prices) && is_object($prices))
     <section class="conference-fee" style="background-image: url('/assets/img/conference-fee.jpg')">
         <div class="container">
             <div class="conference-fee__block">
-                <h2 class="conference-fee__title">Conference fee</h2>
+                <h2 class="title">Conference fee</h2>
                 <div class="conference-fee__table">
                     <div class="conference-fee__table-head">
                         <div class="conference-fee__table-tr">
@@ -215,18 +216,20 @@
         </section>
     @endforeach
 @endif
-<section class="organized">
-    <div class="container">
-        <h2 class="organized__title">Organized by</h2>
-    </div>
-</section>
-<section class="address">
-    <div class="container">
-        <h2 class="address__title">Address of Conference Organizing Committee</h2>
-        <div class="address__img"></div>
-        {{"map here"}}
-    </div>
-</section>
+@if(isset($organized_by) && is_array($organized_by))
+    <section class="organized">
+        <div class="container">
+            <h2 class="organized__title">{{$organized_by['title']}}</h2>
+        </div>
+    </section>
+    <section class="address">
+        <div class="container">
+            <h2 class="address__title">{{$organized_by['address']}}</h2>
+            <div class="my_address__img">{!! Html::image('assets/img/'.$organized_by['image'])!!}</div>
+        </div>
+    </section>
+    {!!$organized_by['google_map']!!}
+@endif
 @if(isset($footer) && is_array($footer))
     <section class="footer">
         <div class="container">

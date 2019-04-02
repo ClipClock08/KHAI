@@ -36,11 +36,9 @@ class IndexController extends Controller
         $programme = Programme::latest()->first();
         $programme = $programme->toArray();
 
-        $organizing = Organizing::latest()->first();
-        $organizing = $organizing->toArray();
+        $organizing = Organizing::all();
 
-        $documents = Documents::latest()->first();
-        $documents = $documents->toArray();
+        $documents = Documents::all();
 
         $prices = Prices::all();
 

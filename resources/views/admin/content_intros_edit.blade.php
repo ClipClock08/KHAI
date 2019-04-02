@@ -33,21 +33,6 @@
         </div>
     </div>
 
-    {{--<div class="form-group">
-        {!! Form::label('old_images', 'Image', ['class'=>'col-xs-2 control-label']) !!}
-        <div class="col-xs-8">
-            {!! Html::image('assets/img/'.$data['images'],,['class'=>'img-control']!!}
-            {!! Form::hidden('old_images',$data['images]) !!}
-        </div>
-    </div>
-
-
-    <div class="form-group">
-        {!! Form::label('images', 'Image', ['class'=>'col-xs-2 control-label']) !!}
-        <div class="col-xs-8">
-            {!! Form::file('images',['class'=>'filestyle', 'data-buttonText'=>'Choose image', 'data-buttonName'=>'btn-primary','data-placeholder'=>'File except']) !!}
-        </div>
-    </div>--}}
     <div class="form-group">
         <div class="col-xs-offset-2 col-xs-10">
             {!! Form::button('Save',['class'=>'btn btn-primary', 'type'=>'submit'] ) !!}

@@ -164,13 +164,13 @@ Route::group(['prefix'=>'admin', 'middleware'=>'auth'], function (){
     Route::group(['prefix'=>'organized_by'], function (){
 
         //admin/organized_by
-        Route::get('/', ['uses'=>'OrganizedByController@execute','as'=>'organized_by']);
+        Route::get('/', ['uses'=>'OrganizedByController@execute','as'=>'organizedBy']);
 
         //admin/organized_by/add
-        Route::match(['get','post'], '/add',['uses'=>'OrganizedByAddController@execute', 'as'=>'organized_byAdd']);
+        Route::match(['get','post'], '/add',['uses'=>'OrganizedByAddController@execute', 'as'=>'organizedByAdd']);
 
         //admin/edit/{id}
-        Route::match(['get', 'post','delete'], '/edit/{organized_by}', ['uses'=>'OrganizedByEditController@execute', 'as'=>'organized_byEdit']);
+        Route::match(['get', 'post','delete'], '/edit/{organized_by}', ['uses'=>'OrganizedByEditController@execute', 'as'=>'organizedByEdit']);
 
     });
 

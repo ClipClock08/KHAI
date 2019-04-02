@@ -15,6 +15,9 @@ class CreateTableOrganizing extends Migration
     {
         Schema::create('organizing', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->string('degree', 50);
+            $table->string('fio', 50);
+            $table->string('info', 255);
             $table->timestamps();
         });
     }

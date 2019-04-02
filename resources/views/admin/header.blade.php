@@ -26,19 +26,14 @@
                     <h5>Important dates</h5>
                 </a>
             </li>
-            <li>
+            {{--<li>
                 <a href="{{route('conf_topics')}}">
                     <h5>Conference topics</h5>
                 </a>
-            </li>
+            </li>--}}
             <li>
                 <a href="{{route('keynote')}}">
                     <h5>Keynotes Speaker</h5>
-                </a>
-            </li>
-            <li>
-                <a href="{{route('programme')}}">
-                    <h5>International Programme Committee</h5>
                 </a>
             </li>
             <li>
@@ -62,7 +57,7 @@
                 </a>
             </li>
             <li>
-                <a href="{{route('organized_by')}}">
+                <a href="{{route('organizedBy')}}">
                     <h5>Organized by</h5>
                 </a>
             </li>

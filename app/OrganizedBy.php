@@ -8,4 +8,5 @@ class OrganizedBy extends Model
 {
     //
     protected $table = 'organized_by';
+    protected $fillable = ['title', 'address', 'image', 'google_map'];
 }
