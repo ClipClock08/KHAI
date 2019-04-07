@@ -95,16 +95,27 @@
         </div>
     </div>
 </section>
+
+
 @if(isset($keynotes) && is_object($keynotes))
     <section class="keynote">
         <div class="container">
-            <h2>Keynote Speaker</h2>
+            <h2 class="title">Keynote Speaker</h2>
             <div class="keynote__block">
-                @foreach($keynotes as $k=>$keynote)
-                    <div class="keynote__item">
-                        <p>{{$keynote->speaker}} {{$keynote->city}}</p>
-                    </div>
-                @endforeach
+                <div class="keynote__slider">
+                    @foreach($keynotes as $k=>$keynote)
+                        <div>
+                            <div class="keynote__item" style="background: url('/assets/img/{{$keynote->image}}') no-repeat center top /cover;">
+
+                                <div class="keynote__item-hidden">
+                                    <div class="keynote__item-text">
+                                        <p>{{$keynote->speaker}} {{$keynote->city}}</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    @endforeach
+                </div>
             </div>
         </div>
     </section>

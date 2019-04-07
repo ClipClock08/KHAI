@@ -27,3 +27,8 @@ function initMap() {
         title: 'ХАИ'
     });
 }
+
+$('.keynote__slider').slick({
+    slidesToShow: 3,
+    slidesToScroll: 3
+});
